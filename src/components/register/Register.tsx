@@ -24,7 +24,7 @@ function Register() {
   // Method to handle Register with axios request
   const handleRegister = async () => {
       try {
-          let res = await axios.post('http://localhost:8080/users/register', {
+          let res = await axios.post('http://ec2-34-224-100-40.compute-1.amazonaws.com/users/register', {
               username: username,
               password: password
           }, {
@@ -33,6 +33,7 @@ function Register() {
           // Handle successful register
           console.log(res);
           if (res.status === 201) {
+            localStorage.setItem('username', username);
               navigate('/plans');
           }
 

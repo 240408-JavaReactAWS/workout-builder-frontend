@@ -13,8 +13,8 @@ function NewExerciseForm() {
     useEffect(() => {
         let asyncCall = async () => {
             try {
-                let res = await axios.get('http://localhost:8080/users/admin', {
-                    withCredentials: true
+                let res = await axios.get('http://ec2-34-224-100-40.compute-1.amazonaws.com/users/admin', {
+                    withCredentials: true , headers: { 'Content-Type': 'application/json', 'username': localStorage.getItem("username")}
                 });
                 // console.log(res);
             } catch (error : any) {
@@ -45,11 +45,11 @@ function NewExerciseForm() {
     let submitNewExercise = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            let res = await axios.post('http://localhost:8080/exercises', {
+            let res = await axios.post('http://ec2-54-172-227-238.compute-1.amazonaws.com/exercises', {
                 name: exerciseName,
                 bodyGroup: bodyGroup
             }, {
-                withCredentials: true
+                withCredentials: true , headers: { 'Content-Type': 'application/json', 'username': localStorage.getItem("username")}
             });
             if (res.status === 201) {
                 navigate('/exercises');

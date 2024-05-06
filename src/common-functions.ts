@@ -3,7 +3,7 @@ import axios from "axios";
 export const commonFunctions = {
     validateSession: async () => {
         try {
-            let res = await axios.get('http://ec2-54-172-227-238.compute-1.amazonaws.com/users/session', {
+            let res = await axios.get('http://ec2-34-224-100-40.compute-1.amazonaws.com/users/session', {
                 withCredentials: true
             });
             console.log(res);
@@ -19,4 +19,5 @@ export const commonFunctions = {
             return false;
         }
     },
+
 }

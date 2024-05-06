@@ -29,15 +29,16 @@ function Login() {
     // Method to handle login with axios request
     const handleLogin = async () => {
         try {
-            let res = await axios.post('http://localhost:8080/users/login', {
+            let res = await axios.post('http://ec2-34-224-100-40.compute-1.amazonaws.com/users/login', {
                 username: username,
                 password: password
             }, {
-                withCredentials: true
+                withCredentials: true 
             });
             // Handle successful login
             console.log(res);
             if (res.status === 200) {
+                localStorage.setItem('username', username);
                 navigate('/plans');
             }
 

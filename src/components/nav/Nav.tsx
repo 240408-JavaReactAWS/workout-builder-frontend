@@ -9,17 +9,17 @@ function Nav() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        let asyncCall = async () => {
-            let validateSession = await commonFunctions.validateSession();
-            if (validateSession) {
-                setIsLoggedIn(true);
-            } else{
-                setIsLoggedIn(false);
-            }
-        }
-        asyncCall();
-    }, [window.location.pathname]);
+    // useEffect(() => {
+    //     let asyncCall = async () => {
+    //         let validateSession = await commonFunctions.validateSession();
+    //         if (validateSession) {
+    //             setIsLoggedIn(true);
+    //         } else{
+    //             setIsLoggedIn(false);
+    //         }
+    //     }
+    //     asyncCall();
+    // }, [window.location.pathname]);
 
     
     
