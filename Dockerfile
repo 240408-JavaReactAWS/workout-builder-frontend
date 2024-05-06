@@ -1,4 +1,4 @@
-FROM: node
+FROM node
 
 WORKDIR /workout-builder-frontend/
 
