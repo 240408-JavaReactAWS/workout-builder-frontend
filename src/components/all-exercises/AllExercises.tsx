@@ -16,7 +16,7 @@ function AllExercises() {
     useEffect(() => {
         let asyncCall = async () => {
             try {
-                let res = await axios.get('http://ec2-54-172-227-238.compute-1.amazonaws.com/users/admin', {
+                let res = await axios.get('http://localhost:8080/users/admin', {
                     withCredentials: true
                 });
                 // console.log(res);
@@ -33,7 +33,7 @@ function AllExercises() {
 
 
             try {
-                let res = await axios.get('http://ec2-54-172-227-238.compute-1.amazonaws.com/exercises', {
+                let res = await axios.get('http://localhost:8080/exercises', {
                     withCredentials: true
                 });
                 // console.log(res.data);
@@ -51,7 +51,7 @@ function AllExercises() {
     let filterExercises = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFilter(e.target.value);
         try {
-            let res = await axios.get(`http://ec2-54-172-227-238.compute-1.amazonaws.com/exercises`, {
+            let res = await axios.get(`http://localhost:8080/exercises`, {
                 withCredentials: true
             });
             let filteredExercises = res.data.filter((exercise: IExercise) => {
@@ -68,7 +68,7 @@ function AllExercises() {
 
     let refreshExercises = async () => {
         try {
-            let res = await axios.get('http://ec2-54-172-227-238.compute-1.amazonaws.com/exercises', {
+            let res = await axios.get('http://localhost:8080/exercises', {
                 withCredentials: true
             });
             let filteredExercises = res.data.filter((exercise: IExercise) => {

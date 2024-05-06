@@ -13,7 +13,7 @@ function NewExerciseForm() {
     useEffect(() => {
         let asyncCall = async () => {
             try {
-                let res = await axios.get('http://ec2-54-172-227-238.compute-1.amazonaws.com/users/admin', {
+                let res = await axios.get('http://localhost:8080/users/admin', {
                     withCredentials: true
                 });
                 // console.log(res);
@@ -45,7 +45,7 @@ function NewExerciseForm() {
     let submitNewExercise = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            let res = await axios.post('http://ec2-54-172-227-238.compute-1.amazonaws.com/exercises', {
+            let res = await axios.post('http://localhost:8080/exercises', {
                 name: exerciseName,
                 bodyGroup: bodyGroup
             }, {

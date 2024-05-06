@@ -16,7 +16,7 @@ function UpdatePlanForm() {
 
     const getCurrentPlan = async () => {
         try {
-            const res = await axios.get(`http://ec2-54-172-227-238.compute-1.amazonaws.com/plans/${id}`, { withCredentials: true });
+            const res = await axios.get(`http://localhost:8080/plans/${id}`, { withCredentials: true });
             const currentPlan: IPlan = res.data;
             setFormName(currentPlan.name);
             setAddedExercises(currentPlan.exercises);
@@ -37,7 +37,7 @@ function UpdatePlanForm() {
 
     const fetchAllExercises = async () => {
         try {
-            const res = await axios.get('http://ec2-54-172-227-238.compute-1.amazonaws.com/exercises', { withCredentials: true });
+            const res = await axios.get('http://localhost:8080/exercises', { withCredentials: true });
             const allExercises: IExercise[] = res.data;
             // console.log(allExercises);
             // console.log(addedExercises);
@@ -88,7 +88,7 @@ function UpdatePlanForm() {
 
         // axios request to create a new plan
         try {
-            let res = await axios.put('http://ec2-54-172-227-238.compute-1.amazonaws.com/plans', newPlan, { withCredentials: true });
+            let res = await axios.put('http://localhost:8080/plans', newPlan, { withCredentials: true });
             if (res.status === 200) {
                 console.log("Plan updated successfully");
                 navigate('/plans')

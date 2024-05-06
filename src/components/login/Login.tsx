@@ -29,7 +29,7 @@ function Login() {
     // Method to handle login with axios request
     const handleLogin = async () => {
         try {
-            let res = await axios.post('http://ec2-54-172-227-238.compute-1.amazonaws.com/users/login', {
+            let res = await axios.post('http://localhost:8080/users/login', {
                 username: username,
                 password: password
             }, {
